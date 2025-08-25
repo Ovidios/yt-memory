@@ -1,7 +1,3 @@
-const classes = [
-    "yt-lockup-metadata-view-model-wiz__title"
-];
-
 const handleVideo = video => {
     // test if on-screen
     let parent = video.closest(".ytd-rich-item-renderer, .ytd-item-section-renderer");
@@ -37,15 +33,13 @@ const findVideos = async () => {
     if (videos === undefined) videos = [];
 
     // find new ones and insert into array
-    classes.forEach(className => {
-        for (const el of document.getElementsByClassName(className)) {
-            let video = handleVideo(el);
-            if (video !== null) {
-                videos = videos.filter(e => e.url != video.url);
-                videos.unshift(video);
-            }
+    document.querySelectorAll(".yt-lockup-metadata-view-model-wiz__title").forEach(el => {
+        let video = handleVideo(el);
+        if (video !== null) {
+            videos = videos.filter(e => e.url != video.url);
+            videos.unshift(video);
         }
-    })
+    });
 
     // only ever save 100 videos
     videos = videos.slice(0, 100);
