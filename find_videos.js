@@ -4,7 +4,7 @@ const classes = [
 
 const handleVideo = video => {
     // test if on-screen
-    let parent = video.closest(".ytd-rich-item-renderer");
+    let parent = video.closest(".ytd-rich-item-renderer, .ytd-item-section-renderer");
     if (parent === null) return null; // not sure why this happens tbh
     let rect = parent.getBoundingClientRect();
     let visible = (
