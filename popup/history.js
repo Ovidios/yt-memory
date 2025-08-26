@@ -1,9 +1,15 @@
-const populateHistory = async () => {
+const populateHistory = async (search = "") => {
     const historyList = document.querySelector("#video-history");
+
+    historyList.innerHTML = "";
+
     let { videos } = await browser.storage.local.get("videos");
     if (videos === undefined) videos = [];
 
-    videos.forEach(vid => {
+    search = search.toUpperCase()
+    let filteredVideos = videos.filter(e => e.title.toUpperCase().includes(search))
+
+    filteredVideos.forEach(vid => {
         let listItem = document.createElement("li");
         let link = document.createElement("a");
         let image = document.createElement("img");
@@ -20,5 +26,7 @@ const populateHistory = async () => {
         historyList.appendChild(listItem);
     });
 }
+
+document.getElementById("search-history").addEventListener("input", e => populateHistory(e.target.value));
 
 populateHistory();

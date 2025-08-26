@@ -12,7 +12,7 @@
             main {
                 max-width: 14rem;
                 margin: 2rem 1rem;
-                padding-top: 2rem;
+                padding-top: 3rem;
             }
             header {
                 color: #f1f1f1;
@@ -29,20 +29,34 @@
                 text-align: center;
                 margin-top: 2rem;
             }
+            a:hover {
+                color: #f1f1f1;
+            }
             a {
                 color: rgb(119, 119, 119);
                 text-decoration: none;
                 text-align: left;
             }
             img {
-                width: 10rem;
+                width: 12rem;
                 border-radius: 0.5rem;
+            }
+            #search-history {
+                background: none;
+                width: 100%;
+                padding: 0.5rem 1rem;
+                border: 1px solid #272727;
+                border-radius: 1.5rem;
+                color: #909292;
+                font-family: 'Roboto', sans-serif;
+                font-size: 1rem;
             }
         </style>
     </head>
     <body>
         <header>YouTube Memory</header>
         <main>
+            <input type="search" name="search-history" id="search-history" placeholder="Search History">
             <li id="video-history"></li>
             <script src="history.js"></script>
         </main>
