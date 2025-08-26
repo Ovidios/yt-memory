@@ -10,7 +10,7 @@
                 padding: 0;
             }
             main {
-                max-width: 14rem;
+                width: 14rem;
                 margin: 2rem 1rem;
                 padding-top: 3rem;
             }
@@ -24,10 +24,15 @@
                 left: 0;
                 width: 100%;
             }
-            li {
-                list-style: none;
+            .video {
                 text-align: center;
-                margin-top: 2rem;
+                margin: 1rem auto 0;
+                padding: 0.5rem;
+                width: 12rem;
+                border-radius: 0.5rem;
+            }
+            .video:hover {
+                background-color: #272727;
             }
             a:hover {
                 color: #f1f1f1;
@@ -51,14 +56,21 @@
                 font-family: 'Roboto', sans-serif;
                 font-size: 1rem;
             }
+            #no-more-videos {
+                text-align: center;
+                color: #272727;
+                font-style: italic;
+                margin: 2rem 1rem 1rem;
+            }
         </style>
     </head>
     <body>
         <header>YouTube Memory</header>
         <main>
             <input type="search" name="search-history" id="search-history" placeholder="Search History">
-            <li id="video-history"></li>
+            <div id="video-history"></div>
             <script src="history.js"></script>
+            <div id="no-more-videos">No more videos here...</div>
         </main>
     </body>
 </html>

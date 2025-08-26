@@ -1,6 +1,6 @@
-const populateHistory = async (search = "") => {
-    const historyList = document.querySelector("#video-history");
+const historyList = document.querySelector("#video-history");
 
+const populateHistory = async (search = "") => {
     historyList.innerHTML = "";
 
     let { videos } = await browser.storage.local.get("videos");
@@ -10,11 +10,12 @@ const populateHistory = async (search = "") => {
     let filteredVideos = videos.filter(e => e.title.toUpperCase().includes(search))
 
     filteredVideos.forEach(vid => {
-        let listItem = document.createElement("li");
+        let listItem = document.createElement("div");
         let link = document.createElement("a");
         let image = document.createElement("img");
         let title = document.createElement("div");
 
+        listItem.classList.add("video");
         image.src = vid.thumbnail;
         link.href = `https://youtube.com${vid.url}`;
         title.innerText = vid.title.substring(0, 50);
