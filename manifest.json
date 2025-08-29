@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "YT Memory",
-    "version": "1.1",
+    "version": "1.1.1",
 
     "description": "Keeps a log of YouTube videos you've seen, in case you accidentally click away.",
 
