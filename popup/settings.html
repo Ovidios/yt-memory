@@ -12,7 +12,7 @@
             main {
                 width: 14rem;
                 margin: 2rem 1rem;
-                padding-top: 3rem;
+                padding-top: 2rem;
             }
             header {
                 color: #f1f1f1;
@@ -30,60 +30,55 @@
                 margin: 0;
                 flex-grow: 1;
             }
+            header > a {
+                text-align: left;
+                padding-right: 1rem;
+            }
             header > a > img {
                 width: 1rem;
                 vertical-align: middle;
             }
-            .video {
-                text-align: center;
-                margin: 1rem auto 0;
-                padding: 0.5rem;
-                width: 12rem;
-                border-radius: 0.5rem;
-            }
-            .video:hover {
-                background-color: #272727;
-            }
-            .video:hover a {
-                color: #f1f1f1;
-            }
-            a {
-                color: rgb(119, 119, 119);
-                text-decoration: none;
-                text-align: left;
-            }
-            img {
-                width: 12rem;
-                border-radius: 0.5rem;
-            }
-            #search-history {
+            input[type=number] {
                 background: none;
-                width: 100%;
+                width: 9rem;
                 padding: 0.5rem 1rem;
-                border: 1px solid #272727;
+                margin: 0.5rem;
+                border: 1px solid #414141;
                 border-radius: 1.5rem;
                 color: #909292;
                 font-family: 'Roboto', sans-serif;
                 font-size: 1rem;
             }
-            #no-more-videos {
-                text-align: center;
-                color: #272727;
-                font-style: italic;
-                margin: 2rem 1rem 1rem;
+            label {
+                padding: 1rem;
+                margin-bottom: 0.5rem;
+            }
+            .settings-group {
+                margin: 1rem auto 0;
+                padding: 0.5rem;
+                width: 12rem;
+                border-radius: 0.5rem;
+                color: rgb(119, 119, 119);
+            }
+            .settings-group:hover {
+                background-color: #272727;
+                color: #f1f1f1;
             }
         </style>
     </head>
     <body>
         <header>
-            <h1>YouTube Memory</h1>
-            <a href="settings.html"><img src="../icons/settings.png" alt="settings"></a>
+            <a href="history.html"><img src="../icons/arrow_back.png" alt="settings"></a>
+            <h1>Settings</h1>
         </header>
         <main>
-            <input type="search" name="search-history" id="search-history" placeholder="Search History">
-            <div id="video-history"></div>
-            <script src="history.js"></script>
-            <div id="no-more-videos">No more videos here...</div>
+            <form id="settings-form">
+                <div class="settings-group">
+                    <label for="video-count">Maximum History Size</label>
+                    <input type="number" name="video_count" id="video-count" min="10" max="1000" value="100">
+                </div>
+            </form>
         </main>
+        <script src="settings.js"></script>
     </body>
 </html>
